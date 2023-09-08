@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(2, 15, 32, 0.4), rgba(2, 15, 32, 0.4)),
+    url(image.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  font-size: 14px;
+  padding: 11px 15px;
+  min-width: 41px;
+  max-width: 0px;
+  height: 41px;
+  color: white;
+  border-radius: 9999rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  cursor: pointer;
+  animation: appearing 300ms ease-in;
+}
+
+.button--clicked {
+  max-width: 20vw;
+  overflow: hidden;
+  transition: max-width 0.2s, background-color 0.25s ease-in;
+}
+
+.button--blue {
+  background: rgba(56, 119, 238, 0.7);
+}
+.button--blue.button--clicked {
+  background-color: #3877ee;
+}
+
+.button--green {
+  background: rgba(106, 191, 75, 0.7);
+}
+.button--green.button--clicked {
+  background-color: #6abf4b;
+}
+
+.button__content {
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
+}
+
+.button__content--hidden {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0s;
+}
+
+.button--clicked .button__content {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0s;
+}
+
+.button--clicked .button__content--hidden {
+  opacity: 1;
+  position: static;
+  transition: opacity 0.25s ease-in;
+}
+
+@keyframes appearing {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
